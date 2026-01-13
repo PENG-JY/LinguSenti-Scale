@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Conclusion and Recommendations – DSAN 6000 Big Data Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSAN 6000 Big Data Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./eda.html"> 
+<span class="menu-text">EDA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./nlp.html"> 
+<span class="menu-text">NLP</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ml.html"> 
+<span class="menu-text">ML</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./conclusion.html" aria-current="page"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#answers-to-all-10-business-questions" id="toc-answers-to-all-10-business-questions" class="nav-link" data-scroll-target="#answers-to-all-10-business-questions">Answers to All 10 Business Questions</a>
+  <ul class="collapse">
+  <li><a href="#eda-questions" id="toc-eda-questions" class="nav-link" data-scroll-target="#eda-questions">EDA Questions</a></li>
+  <li><a href="#nlp-questions" id="toc-nlp-questions" class="nav-link" data-scroll-target="#nlp-questions">NLP Questions</a></li>
+  <li><a href="#ml-questions" id="toc-ml-questions" class="nav-link" data-scroll-target="#ml-questions">ML Questions</a></li>
+  </ul></li>
+  <li><a href="#major-findings" id="toc-major-findings" class="nav-link" data-scroll-target="#major-findings">Major Findings</a>
+  <ul class="collapse">
+  <li><a href="#key-insight-1-engagement-follows-clear-temporal-and-topical-patterns" id="toc-key-insight-1-engagement-follows-clear-temporal-and-topical-patterns" class="nav-link" data-scroll-target="#key-insight-1-engagement-follows-clear-temporal-and-topical-patterns">Key Insight 1: Engagement Follows Clear Temporal and Topical Patterns</a></li>
+  <li><a href="#key-insight-2-emotional-expression-and-high-stakes-themes-drive-community-interaction" id="toc-key-insight-2-emotional-expression-and-high-stakes-themes-drive-community-interaction" class="nav-link" data-scroll-target="#key-insight-2-emotional-expression-and-high-stakes-themes-drive-community-interaction">Key Insight 2: Emotional Expression and High-Stakes Themes Drive Community Interaction</a></li>
+  <li><a href="#key-insight-3-engagement-conflict-and-activity-can-be-predicted-reliably" id="toc-key-insight-3-engagement-conflict-and-activity-can-be-predicted-reliably" class="nav-link" data-scroll-target="#key-insight-3-engagement-conflict-and-activity-can-be-predicted-reliably">Key Insight 3: Engagement, Conflict, and Activity Can Be Predicted Reliably</a></li>
+  </ul></li>
+  <li><a href="#addressing-the-high-level-problem" id="toc-addressing-the-high-level-problem" class="nav-link" data-scroll-target="#addressing-the-high-level-problem">Addressing the High-Level Problem</a></li>
+  <li><a href="#business-recommendations" id="toc-business-recommendations" class="nav-link" data-scroll-target="#business-recommendations">Business Recommendations</a>
+  <ul class="collapse">
+  <li><a href="#recommendation-1-proactive-monitoring-of-high-risk-emotional-periods" id="toc-recommendation-1-proactive-monitoring-of-high-risk-emotional-periods" class="nav-link" data-scroll-target="#recommendation-1-proactive-monitoring-of-high-risk-emotional-periods">Recommendation 1: Proactive Monitoring of High-Risk Emotional Periods</a></li>
+  <li><a href="#recommendation-2-prioritize-emotionally-expressive-and-advice-seeking-posts-in-ranking" id="toc-recommendation-2-prioritize-emotionally-expressive-and-advice-seeking-posts-in-ranking" class="nav-link" data-scroll-target="#recommendation-2-prioritize-emotionally-expressive-and-advice-seeking-posts-in-ranking">Recommendation 2: Prioritize Emotionally Expressive and Advice-Seeking Posts in Ranking</a></li>
+  <li><a href="#recommendation-3-use-predictive-activity-forecasting-to-optimize-moderation-and-system-resources" id="toc-recommendation-3-use-predictive-activity-forecasting-to-optimize-moderation-and-system-resources" class="nav-link" data-scroll-target="#recommendation-3-use-predictive-activity-forecasting-to-optimize-moderation-and-system-resources">Recommendation 3: Use Predictive Activity Forecasting to Optimize Moderation and System Resources</a></li>
+  </ul></li>
+  <li><a href="#limitations-and-future-work" id="toc-limitations-and-future-work" class="nav-link" data-scroll-target="#limitations-and-future-work">Limitations and Future Work</a>
+  <ul class="collapse">
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
+  </ul></li>
+  <li><a href="#technical-achievements" id="toc-technical-achievements" class="nav-link" data-scroll-target="#technical-achievements">Technical Achievements</a>
+  <ul class="collapse">
+  <li><a href="#big-data-processing" id="toc-big-data-processing" class="nav-link" data-scroll-target="#big-data-processing">Big Data Processing</a></li>
+  <li><a href="#analytical-breadth" id="toc-analytical-breadth" class="nav-link" data-scroll-target="#analytical-breadth">Analytical Breadth</a></li>
+  </ul></li>
+  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned">Lessons Learned</a>
+  <ul class="collapse">
+  <li><a href="#technical-lessons" id="toc-technical-lessons" class="nav-link" data-scroll-target="#technical-lessons">Technical Lessons</a></li>
+  <li><a href="#domain-lessons" id="toc-domain-lessons" class="nav-link" data-scroll-target="#domain-lessons">Domain Lessons</a></li>
+  </ul></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final Thoughts</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Conclusion and Recommendations</h1>
+<p class="subtitle lead">Final Analysis and Business Impact</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Milestone 4 Deliverable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is populated during <strong>Milestone 4 (Week 8)</strong> - Final Submission.</p>
+</div>
+</div>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<p>This project analyzes 9.8 million Reddit comments and submissions from r/relationship_advice to understand how linguistic patterns, emotional expression, and temporal posting behaviors shape community engagement and sentiment dynamics. Using distributed processing on Apache Spark, we performed large-scale EDA to uncover temporal cycles in posting behavior and topic-driven differences in engagement. NLP methods including NRC emotion analysis, topic modeling, and linguistic feature extraction revealed that emotional intensity, vulnerability, and high-stakes relationship themes drive the strongest community reactions. Machine learning models further demonstrated that controversy, high engagement, and daily activity levels can be reliably predicted from simple behavioral and linguistic features, indicating consistent and learnable patterns in community interaction.</p>
+<p>Together, these findings provide a comprehensive view of how relationship discussions evolve on Reddit and offer actionable insights for moderation strategy, content ranking, and user support. The project shows that emotional tone, relational stakes, and posting context rather than text length or rarity are the primary forces shaping engagement and sentiment in this online advice-seeking community.</p>
+</section>
+<section id="answers-to-all-10-business-questions" class="level2">
+<h2 class="anchored" data-anchor-id="answers-to-all-10-business-questions">Answers to All 10 Business Questions</h2>
+<section id="eda-questions" class="level3">
+<h3 class="anchored" data-anchor-id="eda-questions">EDA Questions</h3>
+<ol type="1">
+<li><strong>How do posting behaviors vary by season, hour, and day of week?</strong>: Posting activity shows clear seasonal and daily cycles, peaking during summer months and during evening hours in major Western time zones, with slightly higher engagement early in the week.</li>
+<li><strong>How do post lengths and engagement (score / comment count) correlate over time?</strong>: Post length is positively correlated with engagement, but only weakly. Longer posts receive more comments on average than short posts, yet the overall correlation between length and score/comments remains below 0.1, suggesting other factors primarily drive user responses.</li>
+<li><strong>Which types of posts (“confession”, “breakup”, “family”, “marriage”, etc.) receive the most comments on average?</strong>: Among all relationship-related post types, “marriage” discussions receive by far the highest engagement, with an average of 13.88 comments per post — more than double that of any other category. Posts about breakups and dating follow, each averaging around 6 comments, indicating moderate but consistent community interaction.</li>
+</ol>
+</section>
+<section id="nlp-questions" class="level3">
+<h3 class="anchored" data-anchor-id="nlp-questions">NLP Questions</h3>
+<ol start="4" type="1">
+<li><strong>How do emotional tones in relationship discussions vary across temporal patterns?</strong>: Emotional tones show consistent temporal structure: negative emotions (especially fear and anger) increase modestly during late-night hours, while positive emotions rise during afternoon and evening periods. Sundays exhibit higher negative sentiment, whereas Wednesdays show the strongest positive tone. Positive emotions also peak between March and May, suggesting a seasonal uplift in emotional expression during the spring months.</li>
+<li><strong>What are the most common themes from topic modeling (LDA or BERTopic) in relationship stories (e.g., trust issues, infidelity, family pressure)?</strong>: LDA topic modeling revealed several dominant themes in relationship stories, with the most common centered around infidelity and trust issues, communication problems (texting, ghosting), emotional insecurity, and modern dating challenges. These themes emerged naturally from keyword clusters and represent the recurring concerns that drive users to seek advice.</li>
+<li><strong>Do writing style and emotional vocabulary influence community engagement?</strong>: Emotional vocabulary and writing-style features show only weak associations with engagement, indicating that comment volume is driven far more by content than by sentiment or stylistic choices.</li>
+<li><strong>What early linguistic markers signal high engagement?</strong>: High-engagement posts exhibit clear linguistic signatures: they contain more emotional verbs (“feel”, “want”, “dont”), are longer and richer in unique vocabulary, and include more direct questions. These patterns suggest that self-disclosure, emotional depth, and explicit advice-seeking strongly predict higher community engagement on relationship subreddits.</li>
+</ol>
+</section>
+<section id="ml-questions" class="level3">
+<h3 class="anchored" data-anchor-id="ml-questions">ML Questions</h3>
+<ol start="8" type="1">
+<li><strong>Can we use comment-level metadata and simple text-derived features to predict whether a Reddit comment in r/relationship_advice will be controversial (i.e., produce disagreement reflected by Reddit’s <code>controversiality</code> flag)?</strong>: Yes. Using metadata and simple linguistic features, a Logistic Regression model achieves <strong>AUC ≈ 0.76</strong>. Key predictors include comment depth, awards, and emotionally expressive writing (punctuation, short opinionated phrasing).</li>
+<li><strong>Can early linguistic and behavioral signals in a relationship-focused Reddit post help us predict which posts will spark large-scale community engagement and conversation?</strong> Yes. A lightweight, class-balanced model predicts high-engagement posts with <strong>AUC ≈ 0.65</strong>, successfully identifying a majority of posts in the top 25% comment-count group. Features related to community interaction (unique commenters, controversiality) and expressive language contribute meaningfully.</li>
+<li><strong>Can we use historical posting trends, time-based seasonality, and lagged behavioral patterns to forecast how many posts the subreddit will receive each day?</strong>: Yes. Using lag-based and rolling temporal features, Ridge Regression achieves <strong>R² ≈ 0.56</strong>, showing that over half of day-to-day variation in posting activity can be explained by historical behavioral cycles. Yesterday’s volume, short-term weekly cycles, and rolling 14-30 day trends matters most.</li>
+</ol>
+</section>
+</section>
+<section id="major-findings" class="level2">
+<h2 class="anchored" data-anchor-id="major-findings">Major Findings</h2>
+<section id="key-insight-1-engagement-follows-clear-temporal-and-topical-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-1-engagement-follows-clear-temporal-and-topical-patterns">Key Insight 1: Engagement Follows Clear Temporal and Topical Patterns</h3>
+<p>User activity and engagement show strong temporal rhythms, with peaks during evening hours and summer months, and certain topics such as marriage and breakups drawing significantly higher participation. Text length shows only weak correlation with engagement, indicating that the emotional significance of the topic matters more than verbosity.</p>
+<p><strong>Business Impact:</strong><br>
+Understanding when users are most active and which topics reliably generate discussion allows moderators and platform managers to better allocate resources, anticipate high-traffic periods, and design content strategies that encourage healthy participation. Highlighting high-stakes topics during peak hours can improve community responsiveness, while targeted moderation can help prevent overload during surges.</p>
+</section>
+<section id="key-insight-2-emotional-expression-and-high-stakes-themes-drive-community-interaction" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-2-emotional-expression-and-high-stakes-themes-drive-community-interaction">Key Insight 2: Emotional Expression and High-Stakes Themes Drive Community Interaction</h3>
+<p>NLP analyses show that emotionally expressive posts, particularly those involving trust, uncertainty, infidelity, or long-term commitment, attract stronger reactions and shape overall community sentiment. Spring months and mid-week periods show more positive tone, while late-night and weekend discussions are more negative or fear-driven.</p>
+<p><strong>Business Impact:</strong><br>
+Recognizing which emotional tones and relational themes trigger strong engagement enables platforms to guide users toward more constructive interactions. Moderators can monitor emotionally intense periods more closely, while recommendation systems can surface supportive or informative content when users are likely to be distressed. This helps maintain a healthier emotional climate within the community.</p>
+</section>
+<section id="key-insight-3-engagement-conflict-and-activity-can-be-predicted-reliably" class="level3">
+<h3 class="anchored" data-anchor-id="key-insight-3-engagement-conflict-and-activity-can-be-predicted-reliably">Key Insight 3: Engagement, Conflict, and Activity Can Be Predicted Reliably</h3>
+<p>Machine learning models demonstrate that conflict likelihood, high engagement, and daily posting volume can be predicted using simple behavioral, linguistic, and temporal features. These consistent and learnable patterns allow early detection of controversial threads and accurate forecasting of community activity.</p>
+<p><strong>Business Impact:</strong><br>
+Predictive signals provide a powerful tool for proactive moderation and platform planning. Moderators can identify emerging conflicts earlier, allocate attention to posts likely to go viral, and prepare for high-volume days. Platforms can use these predictions to improve content ranking, reduce the spread of conflict spirals, and optimize system resources such as NLP pipelines during expected surges.</p>
+</section>
+</section>
+<section id="addressing-the-high-level-problem" class="level2">
+<h2 class="anchored" data-anchor-id="addressing-the-high-level-problem">Addressing the High-Level Problem</h2>
+<p><strong>Original Problem Statement:</strong><br>
+How do linguistic patterns, emotional expressions, and temporal posting behaviors shape community engagement and sentiment dynamics within Reddit relationship discussions?</p>
+<p><strong>How Our Analysis Addresses It:</strong><br>
+Our multi-stage analysis spanning EDA, NLP, and machine learning systematically decomposes this high-level question into ten focused business questions that collectively reveal how engagement and sentiment emerge and evolve within the community.</p>
+<p>From an EDA perspective, we first established the behavioral foundation of the subreddit by examining when users post, how they interact, and which topics attract the most attention. Temporal analyses show that community engagement follows strong daily and seasonal rhythms, while topical comparisons highlight that discussions involving marriage, breakups, or major relationship milestones generate significantly higher engagement than everyday or low-stakes issues. These findings clarify how timing and topic importance shape visibility and participation.</p>
+<p>Our NLP analysis then examined how emotional tone and linguistic content influence community dynamics. NRC-based emotion tracking shows that negative emotions cluster during late-night hours and weekends, whereas positive expressions peak mid-week and during spring months, revealing a temporal structure in emotional climate. Topic modeling identifies the dominant relational themes including trust, infidelity, emotional dependence, and family interference and demonstrates that high-engagement posts tend to be those that are emotionally expressive, vulnerable, or framed as requests for help. Together, these insights explain how emotional language and thematic intensity drive both discussion volume and community sentiment.</p>
+<p>Finally, our machine learning models quantify and predict these dynamics, showing that controversy, engagement, and daily posting volume can be reliably forecast from simple behavioral and linguistic features. These predictive results validate that the subreddit operates with consistent patterns. Emotionally charged writing, complex relational dilemmas, and specific temporal windows all elevate the likelihood of strong community reaction. ML findings also translate these patterns into practical tools for early detection, moderation planning, and activity forecasting.</p>
+<p>By integrating these perspectives, our analysis demonstrates that Reddit relationship discussions are shaped most strongly by the interplay of posting rhythms, emotional expression, and the relational stakes embedded in users stories. High-engagement threads arise not from text length or uncommon words but from emotionally charged narratives posted during peak activity periods. Sentiment dynamics similarly follow temporal cycles and are anchored in the emotional and thematic content of discussions. In total, our ten analyses spanning user behavior, linguistic structure, emotional tone, and predictive modeling provide a holistic data-driven understanding of how community engagement and sentiment evolve within this online relationship advice ecosystem.</p>
+</section>
+<section id="business-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="business-recommendations">Business Recommendations</h2>
+<section id="recommendation-1-proactive-monitoring-of-high-risk-emotional-periods" class="level3">
+<h3 class="anchored" data-anchor-id="recommendation-1-proactive-monitoring-of-high-risk-emotional-periods">Recommendation 1: Proactive Monitoring of High-Risk Emotional Periods</h3>
+<p><strong>Based on:</strong><br>
+Our NLP findings show that fear, anger, and negative sentiment spike late at night and on weekends. ML models demonstrate strong ability to predict controversy (AUC ≈ 0.76), and EDA confirms that emotionally intense topics such as marriage or breakups attract high interaction and conflict.</p>
+<p><strong>Action:</strong><br>
+Implement automated triggers that flag emotionally volatile posts or rapidly growing comment chains during high-risk periods (late-night UTC, weekends). Moderators should be scheduled or alerted during predicted conflict windows. The system can also surface supportive resources (e.g., crisis hotlines, relationship support bots) for users posting high-distress content.</p>
+<p><strong>Expected Impact:</strong><br>
+Earlier intervention reduces escalation, improves community safety, and supports distressed users in real time. Moderation becomes more efficient by focusing attention on the posts most likely to generate conflict.</p>
+</section>
+<section id="recommendation-2-prioritize-emotionally-expressive-and-advice-seeking-posts-in-ranking" class="level3">
+<h3 class="anchored" data-anchor-id="recommendation-2-prioritize-emotionally-expressive-and-advice-seeking-posts-in-ranking">Recommendation 2: Prioritize Emotionally Expressive and Advice-Seeking Posts in Ranking</h3>
+<p><strong>Based on:</strong><br>
+NLP results show that high-engagement posts tend to be emotionally expressive, contain question marks, and explicitly seek advice. Topic modeling reveals that posts involving infidelity, commitment, self-worth, and major relational decisions consistently generate richer discussions.</p>
+<p><strong>Action:</strong><br>
+Adjust content ranking or recommendation logic to gently boost posts that display constructive emotional disclosure (e.g., “I feel…”, “I need help with…”) and ask explicit questions. Provide conversation starters or prompts that encourage clarity and vulnerability in user submissions.</p>
+<p><strong>Expected Impact:</strong><br>
+Higher-quality discussions, increased user satisfaction, and greater visibility for users genuinely seeking support. This shifts engagement toward empathic, community-building interactions rather than reactive or conflict-driven content.</p>
+</section>
+<section id="recommendation-3-use-predictive-activity-forecasting-to-optimize-moderation-and-system-resources" class="level3">
+<h3 class="anchored" data-anchor-id="recommendation-3-use-predictive-activity-forecasting-to-optimize-moderation-and-system-resources">Recommendation 3: Use Predictive Activity Forecasting to Optimize Moderation and System Resources</h3>
+<p><strong>Based on:</strong><br>
+ML findings show that daily post volume can be forecast with R² ≈ 0.56 using lag-based and seasonal features. EDA confirms strong circadian and seasonal cycles, with predictable traffic peaks in evenings and summer months.</p>
+<p><strong>Action:</strong><br>
+Integrate volume forecasts into moderation planning and backend autoscaling. Increase moderator coverage during predicted surges. Adjust compute allocation for NLP pipelines (sentiment, embeddings, topic modeling) based on expected load to maintain performance and reduce costs.</p>
+<p><strong>Expected Impact:</strong><br>
+Lower operational overhead, smoother user experience during high-traffic periods, and improved system reliability. Moderators and platform systems can prepare for busy days rather than reacting to unexpected spikes.</p>
+</section>
+</section>
+<section id="limitations-and-future-work" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-and-future-work">Limitations and Future Work</h2>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<ul>
+<li><p><strong>Keyword-based labeling for post categories is approximate and may misclassify nuanced cases.</strong><br>
+Mitigation: A more robust supervised classifier or transformer-based topic tagger could replace rule-based matching and improve precision.</p></li>
+<li><p><strong>Lexicon-based sentiment (NRC) captures emotional words but not context or sarcasm.</strong><br>
+Mitigation: Future analysis could incorporate contextual models such as RoBERTa, DeBERTa, or domain-adapted emotion classifiers to better understand subtle emotional cues.</p></li>
+<li><p><strong>Engagement and controversy models rely on simple metadata and linguistic features.</strong><br>
+Mitigation: Additional structural features (thread depth patterns, semantic embeddings, interaction networks) could further strengthen predictive performance.</p></li>
+<li><p><strong>Subreddit scope is limited to two relationship-focused communities.</strong><br>
+Mitigation: Expanding to more subreddits or cross-platform analysis (e.g., Twitter, Discord) could test the generality of findings.</p></li>
+<li><p><strong>Daily volume forecasting explains only part of the variance (R² ≈ 0.56).</strong><br>
+Mitigation: Incorporating external signals such as seasonal events, holidays, and news cycles may improve accuracy.</p></li>
+</ul>
+</section>
+<section id="future-work" class="level3">
+<h3 class="anchored" data-anchor-id="future-work">Future Work</h3>
+<ul>
+<li><p><strong>Develop transformer-based sentiment and engagement models</strong> to improve performance on emotional nuance, conflict detection, and high-engagement prediction.</p></li>
+<li><p><strong>Build richer topic representations</strong> using BERTopic, sentence embeddings, and hierarchical clustering to capture deeper narrative structures in relationship stories.</p></li>
+<li><p><strong>Model dynamic user interactions</strong> by analyzing conversation trees, reply timing, and user-to-user networks to understand how discussions evolve.</p></li>
+<li><p><strong>Integrate anomaly detection</strong> to identify unusual emotional surges, viral posts, or sudden shifts in community behavior.</p></li>
+<li><p><strong>Deploy real-time dashboards or moderation tools</strong> leveraging ML predictions for conflict detection, high-engagement forecasting, and volume forecasting.</p></li>
+</ul>
+<p>These extensions would deepen our understanding of engagement dynamics and produce more actionable tools for community moderation and platform design.</p>
+</section>
+</section>
+<section id="technical-achievements" class="level2">
+<h2 class="anchored" data-anchor-id="technical-achievements">Technical Achievements</h2>
+<section id="big-data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="big-data-processing">Big Data Processing</h3>
+<ul>
+<li>Processed ~9.8 million Reddit comments and submissions using a distributed Apache Spark cluster.</li>
+<li>Performed large-scale text cleaning, tokenization, stemming, and NRC-based emotion extraction across &gt;150 million tokens.</li>
+<li>Leveraged Spark SQL and PySpark DataFrames for temporal aggregation, topic categorization, and feature engineering.</li>
+<li>Stored all intermediate datasets in AWS S3 (Parquet format), enabling efficient I/O and iterative pipeline development.</li>
+<li>Achieved end-to-end processing times of under 15 minutes per major task (cleaning, NRC emotion join, temporal aggregation) on a 3–5 node Spark cluster.</li>
+<li>Supported downstream NLP and ML tasks—including LDA topic modeling and logistic regression—through scalable vectorization and distributed computation.</li>
+</ul>
+</section>
+<section id="analytical-breadth" class="level3">
+<h3 class="anchored" data-anchor-id="analytical-breadth">Analytical Breadth</h3>
+<ul>
+<li><p><strong>EDA:</strong> Conducted large-scale exploratory analysis using PySpark DataFrames across millions of submissions and comments. Techniques included timestamp conversion (<code>from_unixtime</code>) and temporal feature extraction (hour, weekday, month), high-volume aggregations (<code>groupBy</code>, <code>agg</code>, <code>pivot</code>), correlation analysis between text length and engagement, and keyword-based topic classification using <code>when()</code> + <code>contains()</code>/<code>rlike()</code>. Produced visualization-ready outputs such as hourly heatmaps, topic distributions by year, and scatterplots linking content length to engagement trends.</p></li>
+<li><p><strong>NLP:</strong> Applied lexicon-based emotion detection using the NRC Emotion Lexicon with stem-aligned tokens to analyze temporal emotional rhythms. Built Spark NLP pipelines (DocumentAssembler → Tokenizer → Normalizer → StopWordsCleaner → Lemmatizer → Finisher) to clean and normalize text at scale. Performed topic modeling with TF-IDF vectorization and Spark MLlib LDA to uncover dominant relationship themes. Ran sentiment analysis (categorical + confidence scores) and engineered linguistic markers (token frequencies, punctuation features, unique-ratio) to evaluate how text structure and emotion relate to engagement dynamics.</p></li>
+<li><p><strong>ML:</strong> Developed Spark ML classification models (Logistic Regression with class weights) to predict controversial comments and high-engagement posts, integrating linguistic, metadata, and behavioral features through VectorAssembler and scaling pipelines. Built a regression modeling suite (Random Forest, Ridge, ElasticNet, XGBoost where applicable) to forecast daily posting volume using lag features, rolling statistics, seasonality indicators, and Fourier terms. Evaluated models with AUC-ROC, F1, RMSE, MAE, and R², achieving stable predictive performance and interpretable feature importance insights.</p></li>
+</ul>
+</section>
+</section>
+<section id="lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned</h2>
+<section id="technical-lessons" class="level3">
+<h3 class="anchored" data-anchor-id="technical-lessons">Technical Lessons</h3>
+<ul>
+<li><p><strong>Scalable Spark Processing:</strong> Working with multi-million–row Reddit datasets highlighted the importance of distributed execution planning, columnar transformations, and minimizing shuffles. We learned to cache intermediate DataFrames strategically, avoid wide <code>groupBy</code> operations without partitioning, and design queries that leverage Spark’s lazy evaluation to keep jobs efficient and fault-tolerant.</p></li>
+<li><p><strong>NLP at Scale:</strong> Large-scale text processing required consistent normalization pipelines and careful vocabulary management. We learned that lexicon lookups, token explosion, and TF-IDF vectorization become expensive at scale, so batching transformations inside Spark NLP pipelines and reducing intermediate cardinality (e.g., limiting vocab size, filtering stopwords early) dramatically improves performance and reliability.</p></li>
+<li><p><strong>End-to-End ML Pipelines:</strong> Building classification and regression models in Spark ML taught us the value of fully pipelined workflows: feature engineering → vectorization → scaling → modeling → evaluation. Handling class imbalance (via class weights), ensuring chronological splits for time-series tasks, and using distributed cross-validation were key lessons in developing reproducible and scalable ML systems for real-world big-data environments.</p></li>
+</ul>
+</section>
+<section id="domain-lessons" class="level3">
+<h3 class="anchored" data-anchor-id="domain-lessons">Domain Lessons</h3>
+<ul>
+<li><p><strong>Reddit communities exhibit strong temporal and emotional rhythms.</strong> Engagement patterns are not random—they follow predictable cycles driven by users’ daily routines, emotional states, and relationship stressors. Understanding these rhythms is essential for interpreting community behavior at scale.</p></li>
+<li><p><strong>Social media analysis requires both breadth and nuance.</strong> Large datasets reveal broad structural patterns, but meaningful insights emerge only when combined with careful linguistic and emotional interpretation. Purely quantitative metrics can miss the relational and psychological depth that characterizes advice-seeking posts.</p></li>
+<li><p><strong>Relationship-focused discussions reflect real-world emotional stakes.</strong> Topics such as trust, infidelity, commitment anxiety, and major life transitions consistently dominate conversation volume. These discussions often signal real distress, making emotional modeling, conflict prediction, and supportive intervention especially valuable in this domain.</p></li>
+</ul>
+</section>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>This project demonstrates the value of integrating large-scale behavioral analysis, linguistic modeling, and machine learning to understand complex online communities. By examining nearly ten million Reddit posts and comments, we uncovered clear patterns in when users seek advice, how they express emotion, and what kinds of relationship challenges prompt the most meaningful engagement. Our analyses reveal predictable temporal posting cycles, weak but consistent links between post length and engagement, distinct thematic structures in relationship storytelling, and measurable linguistic and behavioral markers that forecast both controversy and high community response. Beyond technical achievement, the work highlights how digital platforms serve as emotional support systems for millions of people navigating difficult personal experiences. The insights gained here not only inform better moderation and platform design but also underscore the importance of empathetic, responsible approaches to analyzing human-centered online data.</p>
+<hr>
+</section>
+<section id="acknowledgments" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
+<ul>
+<li><strong>Team Members:</strong>
+<ul>
+<li>Jiayi Peng</li>
+<li>Kexin Lyu</li>
+<li>Stacy Che</li>
+<li>Yanan Wu</li>
+</ul></li>
+<li><strong>Course:</strong> DSAN 6000 Big Data Analytics</li>
+<li><strong>Tools:</strong> Apache Spark, PySpark, Quarto</li>
+<li><strong>Data Source:</strong> Reddit via Pushshift archives</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>DSAN 6000 Big Data Analytics Project</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

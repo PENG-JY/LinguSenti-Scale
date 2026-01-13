@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Testing and linting caches
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AWS
+.aws/
+awscliv2.zip
+aws/
+
+# Spark cluster setup files
+*.pem
+spark-cluster-key.pem
+cluster-config.txt
+cluster-ips.txt
+spark-cluster-key-*.pem
+ssh_to_master_node.sh
+
+# Ignore logs and virtual environment
+*.log
+.venv/
+__pycache__/
+
+
+# Temporary and output files
+*.log
+# *.parquet
+output/
+logs/
+
+# Scratchpad
+.scratchpad/
+
+data/clean/clean_comments/
+data/clean/clean_submissions/
+data/nlp_q4/
+spark-cluster/spark-3.4.4-bin-hadoop3.tgz

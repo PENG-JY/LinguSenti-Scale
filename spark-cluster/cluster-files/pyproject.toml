@@ -1,0 +1,36 @@
+[project]
+name = "lab-spark-on-ec2"
+version = "0.1.0"
+description = "Lab for running Apache Spark on Amazon EC2 for data analytics"
+requires-python = ">=3.10"
+dependencies = [
+    "pyspark>=4.0.0",
+    "boto3>=1.28.0",
+    "pandas>=2.0.0",
+    "ipykernel>=6.25.0",
+    "jupyter>=1.0.0",
+    "awscli>=1.42.35",
+    "nltk>=3.8.0",
+    "numpy>=1.24.0",
+    "pyarrow>=21.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+include = [
+    "*.ipynb",
+    "*.md",
+    "*.csv",
+    "*.txt",
+]

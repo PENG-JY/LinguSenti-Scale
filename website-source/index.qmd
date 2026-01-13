@@ -1,0 +1,117 @@
+---
+title: "Understanding Emotional Dynamics in Online Relationship Discussions"
+subtitle: "DSAN 6000 Big Data Analytics - Fall 2025"
+---
+
+## Team Members
+
+- Jiayi Peng
+- Kexin Lyu
+- Stacy Che
+- Yanan Wu
+
+## Project Overview
+
+**High-Level Problem Statement:**
+
+How do linguistic patterns, emotional expressions, and temporal posting behaviors shape community engagement and sentiment dynamics within Reddit relationship discussions?
+
+### Dataset
+
+- **Source:** Reddit Comments and Submissions
+- **Time Period:** June 2023 – July 2024
+- **Subreddits:** r/relationship_advice
+- **Scale:** ~9.8 million total rows (8.7M comments + 1.1M submissions)
+- **Size:** ~1.83 GB
+
+### Business Questions
+
+We address 10 business questions spanning three analytical approaches:
+
+**Exploratory Data Analysis (EDA):**
+
+1. How do posting behaviors vary by season, hour, and day of week?
+2. How do post lengths and engagement (score / comment count) correlate over time?
+3. Which types of posts (“confession”, “breakup”, “family”, “marriage”, etc.) receive the most comments on average?
+
+**Natural Language Processing (NLP):**
+
+4. How do emotional tones in Reddit relationship discussions change across different temporal patterns (hour of day, weekday, and month), and what do these shifts reveal about user commenting behavior and community sentiment dynamics?
+5. What are the most common themes from topic modeling (LDA or BERTopic) in relationship stories (e.g., trust issues, infidelity, family pressure)?
+6. Do writing style and emotional vocabulary influence community engagement?
+7. What early linguistic markers can signal whether a post will receive high engagement?
+
+**Machine Learning (ML):**
+
+8. Can we predict whether a Reddit comment will be “controversial”?
+9. Can we predict whether a Reddit relationship post will receive high engagement (top 25% comment count)?
+10. Can we predict the daily posting volume of r/relationship_advice using temporal and engagement-driven signals?
+
+See [BUSINESS_QUESTIONS.md](https://github.com/your-repo/BUSINESS_QUESTIONS.md) for detailed technical approaches.
+
+## Methodology
+
+### Data Processing Infrastructure
+
+- **Platform:** Apache Spark cluster on AWS EC2
+- **Processing:** Distributed computing with PySpark
+- **Storage:** Amazon S3 for data lake architecture
+- **Scale:** Processing hundreds of millions of rows
+
+### Analysis Pipeline
+
+1. **Data Acquisition & Filtering** (Milestone 0)
+   - Copy full Reddit dataset from source bucket
+   - Filter to subreddits of interest
+   - Generate dataset statistics
+
+2. **Exploratory Data Analysis** (Milestone 1) → [EDA Page](eda.qmd)
+   - Temporal posting patterns (season, hour, weekday)
+   - Post length vs. engagement over time
+   - Engagement differences across relationship post types
+
+3. **Natural Language Processing** (Milestone 2) → [NLP Page](nlp.qmd)
+   - Emotional tone shifts across temporal cycles
+   - Topic modeling of common relationship themes
+   - Linguistic features associated with high engagement
+
+4. **Machine Learning** (Milestone 3) → [ML Page](ml.qmd)
+   - Predicting controversial comments
+   - Predicting high-engagement posts
+   - Forecasting daily posting volume
+
+5. **Final Analysis** (Milestone 4) → [Conclusion](conclusion.qmd)
+   - Integrated findings
+   - Practical insights and recommendations
+
+
+## Key Findings Preview
+
+
+### Major Insights
+
+1. Engagement patterns are shaped mainly by temporal rhythms and relational stakes, with evening and summertime peaks and substantially higher interaction on emotionally intensive topics such as marriage and breakups, while surface-level text features like length show only weak associations.
+2. Emotional expression and relational stakes are the strongest drivers of engagement in relationship discussions, as posts that reveal vulnerability, seek guidance, or address major issues such as trust, infidelity, or commitment consistently generate the most interaction and shape the community’s emotional tone.
+3. Machine learning models reveal that community engagement, conflict likelihood, and daily activity levels can be reliably predicted from simple behavioral, linguistic, and temporal signals, showing that much of the subreddit’s interaction dynamics follow consistent and learnable patterns.
+
+### Business Impact
+
+Our analysis shows that engagement and emotional dynamics in relationship-focused Reddit communities follow consistent linguistic, temporal, and behavioral patterns that can be quantified and predicted. By combining EDA, NLP, and ML approaches, we uncover when users are most active, which emotional tones resonate with the community, and which types of posts are most likely to drive discussion or conflict. These insights translate into actionable strategies for platform managers and moderators: identifying high-risk threads earlier, prioritizing resources during expected surges, promoting supportive interactions, and ranking content to encourage constructive engagement. Overall, the findings provide a data-driven foundation for improving community health, enhancing user experience, and supporting moderation and platform design decisions.
+
+## Navigation
+
+Use the navigation bar above to explore:
+
+- **[EDA](eda.qmd)**: Exploratory data analysis with statistical insights and temporal patterns
+- **[NLP](nlp.qmd)**: Natural language processing analysis including sentiment and topics
+- **[ML](ml.qmd)**: Machine learning models and predictions
+- **[Conclusion](conclusion.qmd)**: Summary of findings and recommendations
+
+## Repository
+
+- **GitHub:** [https://github.com/gu-dsan6000/fall-2025-project-team-17/](https://github.com/gu-dsan6000/fall-2025-project-team-17/)
+- **Documentation:** All code, data outputs, and analysis documentation available in repository
+
+---
+
+*Last updated: 12/02/2025*

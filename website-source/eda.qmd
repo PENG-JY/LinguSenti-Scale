@@ -1,0 +1,162 @@
+---
+title: "Exploratory Data Analysis"
+subtitle: "Statistical Analysis and Temporal Patterns"
+---
+
+::: {.callout-important}
+## Milestone 1 Deliverable
+This page is populated during **Milestone 1 (Week 3)** with EDA findings.
+:::
+
+## Overview
+This page presents exploratory data analysis of our Reddit dataset, addressing **three key EDA business questions** through statistical summaries, temporal patterns, and topic-level engagement visualizations.  
+Our goal is to understand how relationship-related discussions evolve over time and which emotional or social themes drive community participation.
+
+## Data Overview
+
+### Dataset Summary
+
+| data_type | total_rows | size_gb | date_range_start | date_range_end |
+|------------|-------------|---------|------------------|----------------|
+| comments | 8,674,611 | 1.62 | 2023-06-01 | 2024-07-31 |
+| submissions | 1,149,649 | 0.21 | 2023-06-01 | 2024-07-31 |
+
+### Text Quality Summary
+
+| data_type | missing_text | too_short | too_long |
+|------------|--------------|------------|-----------|
+| comments | 0 | 13,880 | 1,392 |
+| submissions | 0 | 646 | 0 |
+
+**Key Statistics**
+- Total entries: **~9.8 M** (8.7 M comments + 1.1 M submissions)  
+- Date range: **June 2023 – July 2024**  
+- Text coverage: **> 99.9 % complete**, minimal length anomalies  
+
+**Interpretation:**  
+The dataset is clean and well-structured for downstream NLP analysis. Extremely short or long entries form less than 0.2 % of the corpus, ensuring consistent textual quality.
+
+## Business Question 1: Time Pattern of Posting Activities
+
+**Question:** How do posting behaviors vary by season, hour, and day of week?
+
+### Analysis Approach
+
+To explore temporal engagement trends in Reddit relationship discussions, we examined post and comment volumes across multiple time dimensions:
+
+1. **Temporal Aggregation:**  
+   Extracted `month`, `day_of_week`, and `hour_of_day` from each post’s UTC timestamp.
+
+2. **Monthly Trends:**  
+   Grouped posts by month (June 2023 – July 2024) to reveal long-term seasonal dynamics.
+
+3. **Hourly × Weekly Patterns:**  
+   Computed a cross-tabulation of posting frequency by hour and weekday to detect daily and weekly engagement rhythms.
+
+4. **Visualization:**  
+   - **Line chart** – monthly posting trend (2023–2024)  
+   - **Heatmap** – posting activity by hour × weekday  
+   - **Summary table** – average posts and comments per weekday
+
+
+### Findings
+
+![](../data/plots/eda_problem1_time_heatmap_hour_weekday.png)
+![](../data/plots/eda_problem1_time_monthly_trend.png)
+
+
+**Key Insights:**
+
+- Strong seasonality: Posting activity peaks between June – August 2023, exceeding 150 k posts per month. Engagement gradually declines through late 2023 and reaches its lowest levels in April–May 2024, then slightly recovers in early summer 2024.
+- Daily rhythm: The heatmap shows clear circadian behavior—activity rises sharply after 16:00 UTC and peaks between 18:00–23:00 UTC, aligning with evening hours in North America and Europe.
+- Weekday dynamics: Moderate variation across weekdays, with slightly higher engagement at the start of the week (Monday–Tuesday), possibly reflecting users seeking advice after weekend experiences.
+
+
+## Business Question 2: Post Length & Engagement Dynamics
+
+**Question:** How do post lengths and engagement (score / comment count) correlate over time?
+
+### Analysis Approach
+
+To assess the potential relationship between post length and engagement in Reddit discussions, we conducted the following steps:
+
+1. **Text Length Calculation:**
+   Combined `title` and `selftext` fields into a single text body and computed `post_length` as the total number of words.
+
+2. **Length Categorization:**
+   Binned posts into three categories based on word count:
+   - **Short**: < 100 words
+   - **Medium**: 100–500 words
+   - **Long**: > 500 words
+
+3. **Correlation Analysis:**
+   Computed Pearson correlation coefficients between `post_length`, `score`, and `num_comments` for the full dataset.
+
+4. **Visualization:**
+   - **Histogram** – distribution of post lengths
+   - **Scatter plot** – relationship between post length and number of comments (with binned averages)
+
+
+### Findings
+
+![](../data/plots/eda_problem2_post_length_hist.png)
+![](../data/plots/eda_problem2_post_length_vs_comments.png)
+
+**Key Insights:**
+
+- Post lengths are highly skewed: the median length is only 18 words, but the 95th percentile reaches 635 words, and the maximum exceeds 8000 words.
+
+- Posts between 100-500 words tend to receive the highest average number of comments, suggesting that mid-length content is the sweet spot for engagement.
+
+- Correlations between post length and engagement metrics are weak overall, implying the relationship is non-linear and may depend on additional contextual factors like content quality or topic.
+
+
+## Business Question 3: Topic Type vs Average Comments
+
+**Question:** Which types of posts (“confession”, “breakup”, “family”, “marriage”, etc.) receive the most comments on average?
+### Analysis Approach
+
+To identify which themes in relationship discussions attract the most user engagement, we used keyword-based topic labeling and computed the average number of comments per topic category.
+
+1. **Topic labeling:**  
+   We created a `topic_label` variable using regex keyword detection, mapping each submission title or text to one of several predefined categories such as *marriage*, *breakup*, *dating*, *confession*, *family*, and *other*.
+
+2. **Aggregation:**  
+   For each topic, we computed the mean number of comments per submission (`avg_num_comments`), along with basic descriptive counts.
+
+3. **Visualization:**  
+   We produced a bar chart showing `topic_label` vs. `avg_num_comments` and an optional summary table.
+
+
+### Findings
+
+![](../data/plots/eda_problem3_avg_comments_by_topic.png)
+
+
+**Key Insights:**
+
+- Marriage posts receive the highest engagement, averaging nearly 14 comments each. This suggests that long-term relational commitments spark deeper discussions and community advice sharing.
+- Breakup and dating topics maintain moderate activity (≈6 comments per post), indicating consistent but less intense engagement.
+- Confession and family posts tend to receive fewer responses, possibly due to their private or introspective tone.
+- The “other” category, though the largest by count, generates the least engagement—highlighting that emotional relevance, not volume, drives attention in online relationship discourse.
+
+## Summary
+
+### Answers to EDA Business Questions
+
+1. **How do posting behaviors vary by season, hour, and day of week?**: Posting activity shows clear seasonal and daily cycles, peaking during summer months and during evening hours in major Western time zones, with slightly higher engagement early in the week.
+2. **How do post lengths and engagement (score / comment count) correlate over time?**: Post length is positively correlated with engagement, but only weakly. Longer posts receive more comments on average than short posts, yet the overall correlation between length and score/comments remains below 0.1, suggesting other factors primarily drive user responses.
+3. **Which types of posts (“confession”, “breakup”, “family”, “marriage”, etc.) receive the most comments on average?**: Among all relationship-related post types, “marriage” discussions receive by far the highest engagement, with an average of 13.88 comments per post — more than double that of any other category. Posts about breakups and dating follow, each averaging around 6 comments, indicating moderate but consistent community interaction.
+
+### Key Takeaways
+
+- Activity spikes sharply between 18:00–23:00 UTC, consistent with evening usage in North America and Europe, and reaches its highest seasonal volume in June–August, then declines into spring before rebounding in early summer.
+- While long posts tend to draw more comments on average, post length is only weakly associated with engagement overall, which suggests that content plays a larger role than verbosity.
+- Our EDA analysis suggests that posts on marriage stand out as the most discussed category, indicating that users are particularly responsive to conversations involving long-term commitment, conflict, or marital dilemmas. Breakup and dating discussions also generate relatively high engagement, reflecting active community interest in transitional or uncertain relationship stages. In contrast, family and confession topics receive less interaction, suggesting these themes may be more personal or situational, evoking fewer shared experiences from the broader audience, or that these conversations tend not to be a focus of our particular subreddit. The overall findings suggest that the subreddit’s engagement dynamics are driven by the emotional intensity and relational stakes of each topic, with posts addressing key relationship milestones like marriage and breakups fostering the richest discussions and advice exchanges.
+
+---
+
+::: {.callout-tip}
+## Code and Data
+All EDA code is available in `code/eda/` directory. Results are saved in `data/csv/` and visualizations in `data/plots/`.
+:::

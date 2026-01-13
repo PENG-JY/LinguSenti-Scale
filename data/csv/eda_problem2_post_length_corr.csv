@@ -1,0 +1,4 @@
+var_x,var_y,pearson_corr
+post_length,score,0.05173089231238669
+post_length,num_comments,0.08701945938431378
+score,num_comments,0.7331563391191167
